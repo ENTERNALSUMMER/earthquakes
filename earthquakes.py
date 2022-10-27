@@ -2,8 +2,10 @@
 # over the Internet.
 # However, we will use a more powerful and simpler library called requests.
 # This is external library that you may need to install first.
+from matplotlib.pyplot import text
 import requests
-
+import json
+import numpy as np
 
 def get_data():
     # With requests, we can ask the web service for the data.
@@ -24,18 +26,20 @@ def get_data():
     # The response we get back is an object with several fields.
     # The actual contents we care about are in its text field:
     text = response.text
+    json.dumps(text)
     # To understand the structure of this text, you may want to save it
     # to a file and open it in VS Code or a browser.
     # See the README file for more information.
-    ...
+    #json.dumps(response)
 
     # We need to interpret the text to get values that we can work with.
     # What format is the text in? How can we load the values?
-    return ...
+    return text
 
 def count_earthquakes(data):
     """Get the total number of earthquakes in the response."""
-    return ...
+    earthquakeNo = len(text)
+    return earthquakeNo 
 
 
 def get_magnitude(earthquake):
